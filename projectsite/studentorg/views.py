@@ -18,19 +18,19 @@ class OrganizationList(ListView):
     paginate_by = 5
 
 class OrganizationCreateView(CreateView):
-        model = Organization
-        form_class = OrganizationForm
-        template_name = 'org_form.html'
-        success_url = reverse_lazy('organization-list')
+    model = Organization
+    form_class = OrganizationForm
+    template_name = 'org_form.html'
+    success_url = reverse_lazy('organization-list')
 
 class OrganizationUpdateView(UpdateView):
-     model = Organization
-     form_class = OrganizationForm
-     template_name = 'org_form.html'
-     success_url = reverse_lazy('organization-list')
+    model = Organization
+    form_class = OrganizationForm
+    template_name = 'org_form.html'
+    success_url = reverse_lazy('organization-list')
 
 class OrganizationDeleteView(DeleteView):    
-     model = Organization 
-     template_name = 'org_del.html'
-     success_url = reverse_lazy('organization-list')
+    model = Organization 
+    template_name = 'org_del.html'
+    success_url = reverse_lazy('organization-list')
              
