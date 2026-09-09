@@ -8,7 +8,7 @@ from django.db.models import Q
 from django.shortcuts import render
 
 def forms_view(request):
-    return render(request, 'form.html')
+    return render(request, 'forms.html')
 
 
 class HomePageView(ListView):
