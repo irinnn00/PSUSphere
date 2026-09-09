@@ -42,11 +42,12 @@
 						</div>
 					</form>
 					<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+
 						<li class="nav-item dropdown hidden-caret">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarMessageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								<i class="la la-envelope"></i>
 							</a>
-							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<div class="dropdown-menu" aria-labelledby="navbarMessageDropdown">
 								<a class="dropdown-item" href="#">Action</a>
 								<a class="dropdown-item" href="#">Another action</a>
 								<div class="dropdown-divider"></div>
@@ -54,11 +55,11 @@
 							</div>
 						</li>
 						<li class="nav-item dropdown hidden-caret">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarNotificationDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								<i class="la la-bell"></i>
 								<span class="notification">3</span>
 							</a>
-							<ul class="dropdown-menu notif-box" aria-labelledby="navbarDropdown">
+							<ul class="dropdown-menu notif-box" aria-labelledby="navbarNotificationDropdown">
 								<li>
 									<div class="dropdown-title">You have 4 new notification</div>
 								</li>
@@ -110,31 +111,75 @@
 							</ul>
 						</li>
 						<li class="nav-item dropdown">
-							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false"> 
-								<img src="{% static 'img/profile.jpg' %}" alt="user-img" width="36" class="img-circle">
+							<a class="dropdown-toggle profile-pic" 
+							    data-toggle="dropdown" 
+								href="#" 
+								aria-expanded="false"> 
+								<img src="{% static 'img/profile.jpg' %}" 
+								    alt="user-img" 
+									width="36" 
+									class="img-circle">
 								<span>Hizrian</span>
 							</a>
 							<ul class="dropdown-menu dropdown-user">
 								<li>
 									<div class="user-box">
 									
-										<div class="u-img"><img src="{% static 'img/profile.jpg' %}" alt="user"></div>
+										<div class="u-img">
+											<img src="{% static 'img/profile.jpg' %}" alt="user">
+										</div>
+
 										<div class="u-text">
 											<h4>Hizrian</h4>
-											<p class="text-muted">hello@themekita.com</p><a href="profile.html" class="btn btn-rounded btn-danger btn-sm">View Profile</a></div>
-										</div>
-									</li>
-									<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="#"><i class="ti-user"></i> My Profile</a>
-									<a class="dropdown-item" href="#"></i> My Balance</a>
-									<a class="dropdown-item" href="#"><i class="ti-email"></i> Inbox</a>
-									<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="#"><i class="ti-settings"></i> Account Setting</a>
-									<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="#"><i class="fa fa-power-off"></i> Logout</a>
-								</ul>
-								<!-- /.dropdown-user -->
+											<p class="text-muted">hello@themekita.com</p>
+											<a href="#" 
+											class="btn btn-rounded btn-danger btn-sm">
+											View Profile
+										</a>
+									</div>
+								</div>
 							</li>
+							<li>
+								<div class="dropdown-divider"></div>
+							</li>
+
+							<li>
+								<a class="dropdown-item" href="#">
+									<i class="ti-user"></i> My Profile
+								</a>
+							</li>
+
+							<li>
+								<a class="dropdown-item" href="#">
+									My Balance
+								</a>
+							</li>
+
+							<li>
+								<a class="dropdown-item" href="#"><i class="ti-email"></i> Inbox</a>
+							</li>
+
+							<li>
+								<div class="dropdown-divider"></div>
+							</li>
+
+							<li>
+								<a class="dropdown-item" href="#"><i class="ti-settings"></i> Account Setting</a>
+
+							</li>
+
+							<li>
+								<div class="dropdown-divider"></div>
+							</li>
+
+							<li>
+								<a class="dropdown-item" href="#"><i class="fa fa-power-off"></i> Logout</a>
+							</li>
+
+
+						</ul>
+								<!-- /.dropdown-user -->
+					</li>
 						</ul>
 					</div>
 				</nav>
