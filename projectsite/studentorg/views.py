@@ -8,6 +8,7 @@ from django.db.models import Q
 from django.shortcuts import render
 from .models import Organization, Student, OrgMember, College, Program
 from .forms import OrganizationForm, StudentForm, OrgMemberForm, CollegeForm, ProgramForm
+from django.utils import timezone
 
 def forms_view(request):
     return render(request, 'includes/form.html')
@@ -17,6 +18,23 @@ class HomePageView(ListView):
     model = Organization
     context_object_name = 'home'
     template_name = "home.html"
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["total_students"] = Student.objects.count()
+
+        today = timezone.now().date()
+        count = (
+            OrgMember.objects.filter(
+                date_joined__year=today.year
+            )
+            .values("student")    
+            .distinct()
+            .count()
+        )
+        context["students_joined_this_year"] = count
+        return context
+
+
 
 class OrganizationList(ListView):
     model = Organization
