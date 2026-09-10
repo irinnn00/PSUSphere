@@ -6,9 +6,11 @@ from studentorg.forms import OrganizationForm
 from django.urls import reverse_lazy
 from django.db.models import Q
 from django.shortcuts import render
+from .models import Organization, Student, OrgMember, College, Program
+from .forms import OrganizationForm, StudentForm, OrgMemberForm, CollegeForm, ProgramForm
 
 def forms_view(request):
-    return render(request, 'forms.html')
+    return render(request, 'includes/form.html')
 
 
 class HomePageView(ListView):
@@ -31,7 +33,7 @@ class OrganizationList(ListView):
                 Q(name__icontains=query) |
                 Q(description__icontains=query)
                 )
-            return qs
+        return qs
 
 class OrganizationCreateView(CreateView):
     model = Organization
@@ -49,4 +51,101 @@ class OrganizationDeleteView(DeleteView):
     model = Organization 
     template_name = 'org_del.html'
     success_url = reverse_lazy('organization-list')
-             
+
+
+class StudentListView(ListView):
+    model = Student
+    context_object_name = 'students'
+    template_name = 'student_list.html'
+    paginate_by = 10    
+
+
+class StudentCreateView(CreateView):
+    model = Student
+    form_class = StudentForm
+    template_name = 'org_form.html' 
+    success_url = reverse_lazy('student-list')   
+
+
+class StudentUpdateView(UpdateView):
+    model = Student
+    form_class = StudentForm
+    template_name = 'org_form.html'
+    success_url = reverse_lazy('student-list')
+
+class StudentDeleteView(DeleteView):
+    model = Student
+    template_name = 'org_del.html'
+    success_url = reverse_lazy('student-list')
+
+
+class OrgMemberListView(ListView):
+    model = OrgMember
+    context_object_name = 'members'
+    template_name = 'member_list.html'
+    paginate_by = 10
+
+
+class OrgMemberCreateView(CreateView):
+    model = OrgMember
+    form_class = OrgMemberForm
+    template_name = 'org_form.html'  
+    success_url = reverse_lazy('member-list')    
+
+class OrgMemberUpdateView(UpdateView):
+    model = OrgMember
+    form_class = OrgMemberForm
+    template_name = 'org_form.html'
+    success_url = reverse_lazy('member-list')             
+
+class OrgMemberDeleteView(DeleteView):
+    model = OrgMember
+    template_name = 'org_del.html'
+    success_url = reverse_lazy('member-list')    
+
+class CollegeListView(ListView):
+    model = College
+    context_object_name = 'colleges'
+    template_name = 'college_list.html'
+    paginate_by = 10
+
+class CollegeCreateView(CreateView):
+    model = College
+    form_class = CollegeForm
+    template_name = 'org_form.html'
+    success_url = reverse_lazy('college-list')
+
+class CollegeUpdateView(UpdateView):
+    model = College
+    form_class = CollegeForm
+    template_name = 'org_form.html'
+    success_url = reverse_lazy('college-list')
+
+class CollegeDeleteView(DeleteView):
+    model = College
+    template_name = 'org_del.html'
+    success_url = reverse_lazy('college-list')    
+
+
+class ProgramListView(ListView):
+    model = Program
+    context_object_name = 'programs'
+    template_name = 'program_list.html'
+    paginate_by = 10
+
+class ProgramCreateView(CreateView):
+    model = Program
+    form_class = ProgramForm
+    template_name = 'org_form.html'
+    success_url = reverse_lazy('program-list')
+
+class ProgramUpdateView(UpdateView):
+    model = Program
+    form_class = ProgramForm
+    template_name = 'org_form.html'
+    success_url = reverse_lazy('program-list')
+
+class ProgramDeleteView(DeleteView):
+    model = Program
+    template_name = 'org_del.html'
+    success_url = reverse_lazy('program-list')    

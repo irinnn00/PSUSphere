@@ -42,11 +42,22 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <td>{% for object in object_list %}</td>
-                                <td>
-                                    <a href="organization_list/{{ object.id }}">Edit</a>
-                                    <a href="organization_list/{{ object.id }}/delete" class="text-danger">Delete</a>
-                                </td>
+                                {% for object in object_list %}
+                                <tr>
+                                    
+                                    <td>{{ object.name }}</td>
+                                    
+                                   
+                                    <td>{{ object.college.college_name|default:"-" }}</td>
+                                    
+                                  
+                                    <td>{{ object.description }}</td>
+                                    
+                                    
+                                    <td>
+                                        <a href="{% url 'organization-update' object.pk %}" class="text-primary mr-2">Edit</a>
+                                        <a href="{% url 'organization-delete' object.pk %}" class="text-danger">Delete</a>
+                                    </td>
                                 </tr>
                                 {% empty %}
                                 <tr>
@@ -55,8 +66,9 @@
                                     </td>
                                 </tr>
                                 {% endfor %}
-
-                            </tbody>  
+                                </tbody>  
+                            </thead>   
+ 
                         </table>
                         {% include 'includes/pagination.html' %}
                     </div>
