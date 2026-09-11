@@ -27,12 +27,13 @@ SECRET_KEY = 'django-insecure-kgole3x69g1dgkgfb-o&)0kv^s=g1iu18+ty20@ou+v8+u+wim
 DEBUG = True
 
 ALLOWED_HOSTS = ['irin00.pythonanywhere.com',
-                 'psusphere.pythonanywhere.com', '127.0.0.1',]
+                 'psusphere.pythonanywhere.com', '127.0.0.1', 'localhost', '*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'main',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
